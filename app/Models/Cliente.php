@@ -9,4 +9,15 @@ class Cliente extends Model
 {
     /** @use HasFactory<\Database\Factories\ClienteFactory> */
     use HasFactory;
+
+    protected $fillable = [
+        'nombre',
+        'email',
+        'telefono',
+    ];
+
+    public function citas()
+    {
+        return $this->hasMany(Cita::class);
+    }
 }

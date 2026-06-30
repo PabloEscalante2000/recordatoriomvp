@@ -5,6 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\ValidationException;
 
 class LoginRequest extends FormRequest
 {
@@ -37,7 +38,9 @@ class LoginRequest extends FormRequest
         ];
 
         if (!Auth::attempt($data)) {
-            abort(422, "Invalid credentials");
+            throw ValidationException::withMessages([
+                "message" => "Las credenciales no son correctas"
+            ]);
         }
     }
 }

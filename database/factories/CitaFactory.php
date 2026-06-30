@@ -2,14 +2,13 @@
 
 namespace Database\Factories;
 
-use App\Models\Cliente;
+use App\Models\Cita;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-
 /**
- * @extends Factory<Cliente>
+ * @extends Factory<Cita>
  */
-class ClienteFactory extends Factory
+class CitaFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -19,9 +18,7 @@ class ClienteFactory extends Factory
     public function definition(): array
     {
         return [
-            "nombre" => fake()->name(),
-            "email" => fake()->unique()->safeEmail(),
-            "telefono" => fake()->phoneNumber(),
+            //
         ];
     }
 }
